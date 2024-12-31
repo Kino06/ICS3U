@@ -44,7 +44,7 @@ public class StudentGradingSystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>(); // 用于存储学生信息
-        char continueInput;
+        char continueInput = 'y';
         System.out.println("Welcome you to use Student Grading System!"+"\n");
         // 循环输入学生信息
         do {
@@ -56,7 +56,10 @@ public class StudentGradingSystem {
             int score2 = scanner.nextInt();
             System.out.print("Please enter the score for the third course: ");
             int score3 = scanner.nextInt();
-
+            if(score1 > 100 || score2 > 100 || score3 > 100){
+                System.out.println("The information provided is incorrect, please re-enter!");
+                continue;
+            }
             // 创建学生对象并加入列表
             Student student = new Student(name, score1, score2, score3);
             students.add(student);
